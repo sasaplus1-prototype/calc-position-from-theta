@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>calculate position from theta</title>
+    <style>
+      .dot {
+        width: 2px;
+        height: 2px;
+        position: absolute;
+      }
+      .base {
+        background-color: red;
+        box-shadow: 0 0 10px 0px red;
+      }
+      .satellite {
+        background-color: blue;
+        box-shadow: 0 0 10px 0px blue;
+      }
+    </style>
+  </head>
+  <body>
+    <p>base</p>
+    <label>x: <input type="number" data-bind="textInput: x">px</label>
+    <br>
+    <label>y: <input type="number" data-bind="textInput: y">px</label>
+
+    <p>satellite</p>
+    <label>theta: <input type="number" min="0" max="359" step="1" data-bind="textInput: theta"></label>
+    <br>
+    <label>L: <input type="number" step="0.1" data-bind="textInput: l"></label>
+
+    <div class="dot base" data-bind="
+      style: {
+        left: ko.unwrap(x) + 'px',
+        top: ko.unwrap(y) + 'px'
+      }
+    "></div>
+    <div class="dot satellite" data-bind="
+      style: {
+       left: ko.unwrap(satelliteX) + 'px',
+       top: ko.unwrap(satelliteY) + 'px'
+      }
+    "></div>
+
+    <script src="knockout-3.4.1.js"></script>
+    <script src="index.js"></script>
+  </body>
+</html>
